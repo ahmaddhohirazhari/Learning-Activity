@@ -14,4 +14,18 @@ module.exports = {
         }
       );
     }),
+  register: (data) =>
+    new Promise((resolve, reject) => {
+      db.query(
+        `INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *`,
+        [data.email, data.password],
+        (error, result) => {
+          if (!error) {
+            resolve(result);
+          } else {
+            reject(new Error(error));
+          }
+        }
+      );
+    }),
 };

@@ -1,4 +1,5 @@
 const db = require("../config/database");
+const activity = require("../controllers/activity");
 
 module.exports = {
   createActivity: (data) =>
@@ -20,6 +21,62 @@ module.exports = {
       db.query(
         `SELECT * FROM activities WHERE "userId"= $1`,
         [userId],
+        (error, result) => {
+          if (!error) {
+            resolve(result);
+          } else {
+            reject(new Error(error));
+          }
+        }
+      );
+    }),
+  getMonth: (id) =>
+    new Promise((resolve, reject) => {
+      db.query(
+        `SELECT name FROM month WHERE "monthId" =$1`,
+        [id],
+        (error, result) => {
+          if (!error) {
+            resolve(result);
+          } else {
+            reject(new Error(error));
+          }
+        }
+      );
+    }),
+  getActivityById: (activityId) =>
+    new Promise((resolve, reject) => {
+      db.query(
+        `SELECT * FROM activities WHERE "activityId"= $1`,
+        [activityId],
+        (error, result) => {
+          if (!error) {
+            resolve(result);
+          } else {
+            reject(new Error(error));
+          }
+        }
+      );
+    }),
+  update: (data) =>
+    new Promise((resolve, reject) => {
+      db.query(
+        `UPDATE activities SET name = $1, "dateTime" = $2, "updateAt" = $3`,
+        [data.name, data.dateTime, data.updateAt],
+        (error, result) => {
+          if (!error) {
+            resolve(result);
+          } else {
+            reject(new Error(error));
+          }
+        }
+      );
+    }),
+  delete: (activityId) =>
+    new Promise((resolve, reject) => {
+      db.query(
+        `DELETE FROM activities WHERE "activityId" = $1`,
+        [activityId],
         (error, result) => {
           if (!error) {
             resolve(result);
