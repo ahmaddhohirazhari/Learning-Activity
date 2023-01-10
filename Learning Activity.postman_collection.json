@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "c681abae-a9f8-41a0-ba09-c8f5274f948f",
+		"name": "Learning Activity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19983829"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "user1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3001/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Activity",
+			"item": [
+				{
+					"name": "Create Activity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userId",
+									"value": "06aa63da-6569-4365-9ee3-3618848720df",
+									"type": "text"
+								},
+								{
+									"key": "monthId",
+									"value": "167ec928-fc44-45dc-9dbb-b25a2c2accc0",
+									"type": "text"
+								},
+								{
+									"key": "methodId",
+									"value": "20879d8a-739d-4e0f-aedc-58c40df1c5fa",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Beladiri",
+									"type": "text"
+								},
+								{
+									"key": "dateTime",
+									"value": "2023,02,09",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3001/api/activity",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"activity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "monthId",
+									"value": "9b6c5036-2702-421a-a749-9f104beda447",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3001/api/activity/06aa63da-6569-4365-9ee3-3618848720df",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"activity",
+								"06aa63da-6569-4365-9ee3-3618848720df"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "ngoding",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3001/api/activity/cf5d1b67-96a3-4181-9bb7-bcbffd8d49fc",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"activity",
+								"cf5d1b67-96a3-4181-9bb7-bcbffd8d49fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3001/api/activity/cf5d1b67-96a3-4181-9bb7-bcbffd8d49fc",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"activity",
+								"cf5d1b67-96a3-4181-9bb7-bcbffd8d49fc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Greetings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/greetings",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"greetings"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwNmFhNjNkYS02NTY5LTQzNjUtOWVlMy0zNjE4ODQ4NzIwZGYiLCJyb2xlIjoidXNlciIsImlhdCI6MTY3MzE0NzcyMCwiZXhwIjoxNjczMjM0MTIwfQ.VfZjkEFqdQ8uVTDGb4DDB3HbpWYQvAfy1TQrGxYmvKc",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
