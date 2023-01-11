@@ -60,10 +60,14 @@ module.exports = {
         dateTime,
         updateAt: "now()",
       };
-      await activityModel.update(data);
-      const result = await activityModel.getActivityById(activityId);
+      const result = await activityModel.update(activityId, data);
 
-      return wrapper.response(response, 201, "Success Update Data", newRresult);
+      return wrapper.response(
+        response,
+        201,
+        "Success Update Data",
+        result.rows
+      );
     } catch (error) {
       console.log(error);
       return wrapper.response(response, 500, "Internal Server Error", []);

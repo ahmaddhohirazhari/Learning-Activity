@@ -6,10 +6,6 @@ const xss = require("xss-clean");
 const compression = require("compression");
 const bodyParser = require("body-parser");
 
-// const routerNavigation = require("./src/routes"); //
-
-// const serviceAccount = require("./src/config/next-event-organizing-firebase-adminsdk-3874l-9306c10172.json");
-
 const app = express();
 const port = process.env.PORT || 3001;
 

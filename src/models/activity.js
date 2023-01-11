@@ -58,11 +58,11 @@ module.exports = {
         }
       );
     }),
-  update: (data) =>
+  update: (id, data) =>
     new Promise((resolve, reject) => {
       db.query(
-        `UPDATE activities SET name = $1, "dateTime" = $2, "updateAt" = $3`,
-        [data.name, data.dateTime, data.updateAt],
+        `UPDATE activities  SET name = $2, "dateTime" = $3, "updateAt" = $4 WHERE "activityId" =$1 RETURNING *`,
+        [id, data.name, data.dateTime, data.updateAt],
         (error, result) => {
           if (!error) {
             resolve(result);

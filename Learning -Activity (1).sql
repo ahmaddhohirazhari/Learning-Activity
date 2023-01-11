@@ -1,7 +1,7 @@
 CREATE TABLE "users" (
-  "userId" uuid PRIMARY KEY,
+  "userId" int PRIMARY KEY,
   "name" varchar,
-  "username" vrchar,
+  "username" varchar,
   "email" varchar,
   "password" varchar,
   "createdAt" timestamptz,
